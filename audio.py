@@ -7,9 +7,8 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from urllib.parse import urlparse, parse_qs
 from urllib.parse import urlparse
-import mutagen.mp3
-import requests
-import mutagen.mp3
+from mutagen.mp3 import MP3
+
 def authenticate():
     creds = None
     # Comprueba si ya hay credenciales almacenadas
@@ -129,21 +128,13 @@ def obtener_id_desde_url(url_archivo):
             file_id = parsed_url.path[index:end_index]
     return file_id
 
-def get_mp3_duration_from_url(mp3_url):
-    # Descargar el archivo MP3
-    with requests.get(mp3_url, stream=True) as response:
-        response.raise_for_status()
-        # Guardar el archivo descargado temporalmente
-        with open("temp.mp3", "wb") as file:
-            for chunk in response.iter_content(chunk_size=8192):
-                file.write(chunk)
-
-    # Obtener la duración del archivo MP3
-    audio = mutagen.mp3.MP3("temp.mp3")
-    duration_seconds = audio.info.length
-
-    # Eliminar el archivo temporal
-    import os
-    os.remove("temp.mp3")
-
-    return duration_seconds
+def obtener_duracion_mp3_en_segundos(archivo_mp3):
+    duracion_en_segundos = 0
+    try:
+        # Obtener la duración del archivo MP3
+        audio = MP3(archivo_mp3)
+        duracion_segundos = audio.info.length
+        return (str(duracion_en_segundos)+' s')
+    except Exception as e:
+        print("Error al obtener la duración del archivo MP3:", e)
+        return None

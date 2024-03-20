@@ -4,13 +4,13 @@ Para crear un video , seguir los siguientes pasos:
 
 1. Ejecutar el siguiente comando para descargar las dependencias de python:
 
-pip install requests openai google-api-python-client google-auth google-auth-oauthlib
+pip install openai requests google-api-python-client google-auth-oauthlib mutagen
 
 
 2. Debés tener una cuenta de "creatomate.com" y obtener el código de autorización para enviar el request: debe ser algo así:
 c623356c25cf47a999df4684c11d6bc8af5g486da8ac9ab718atkc26ada2f5cb37981ab32767cd0561936e91e3e08b01
 
-3. Crear el archivo de configuración
+1. Crear el archivo de configuración
 En la carpeta principal del proyecto, crea un archivo llamado "config.py".
 
 3.1. Configuración del archivo
