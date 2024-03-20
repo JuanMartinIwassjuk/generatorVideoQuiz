@@ -87,12 +87,12 @@ video = Video(source)
 
 for index_pregunta, question in enumerate(quiz_data_dict["questions"]):
     composition = Composition("Question" + str(index_pregunta), 1, "10 s")
-
+    first_track=10
     question_text = Element("text", track=2, text=question["question"], y="21.80%", fill_color="#000000", background_color="#ffffff")
     question_text.animations.append(text_start_anim)
     question_text.animations.append(text_end_anim)
     composition.elements.append(question_text)
-    question_to_speech = Audio("Audio" + str(index_pregunta), 10, "0 s", "5 s", True, audioDrive[index_pregunta], "100%", "0 s")
+    question_to_speech = Audio("Audio" + str(index_pregunta), first_track, "0 s", audio.obtener_duracion_mp3_en_segundos(os.path.abspath(os.path.join(os.getcwd(), 'audio', f"{index_pregunta}.mp3"))), True, audioDrive[index_pregunta], "100%", "0 s")
     composition.elements.append(question_to_speech)
 
     animation = Animation(easing='linear', type='scale', scope='element', start_scale='120%', fade=False)
@@ -105,10 +105,11 @@ for index_pregunta, question in enumerate(quiz_data_dict["questions"]):
 
     counter = Image("06311a89-c770-48e1-8a33-b5c1c417c787", 9, 5, True, [], y="7%", width="20%", height="12%", time=1.2)
     composition.elements.append(counter)
-
-    countdown = Audio("countdown", 10, "1.2 s", "4.8 s", True, "3b591fe7-e995-4e18-9353-f38c122cc3fb", "5%", "0 s")
+    second_track=first_track+10
+    countdown = Audio("countdown", second_track, "1.2 s", "4.8 s", True, "3b591fe7-e995-4e18-9353-f38c122cc3fb", "5%", "0 s")
     composition.elements.append(countdown)
-    correct = Audio("correct", 10, "7.2 s", "1.85 s", True, "530d3905-bd5b-4534-9532-f6657ed03296", "50%", "0 s")
+    third_track=second_track+10
+    correct = Audio("correct", third_track, "7.2 s", "1.85 s", True, "530d3905-bd5b-4534-9532-f6657ed03296", "50%", "0 s")
     composition.elements.append(countdown)
     composition.elements.append(correct)
 

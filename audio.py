@@ -128,13 +128,12 @@ def obtener_id_desde_url(url_archivo):
             file_id = parsed_url.path[index:end_index]
     return file_id
 
-def obtener_duracion_mp3_en_segundos(archivo_mp3):
-    duracion_en_segundos = 0
+def obtener_duracion_mp3_en_segundos(archivo_mp3): # os.path.abspath(os.path.join(os.getcwd(), 'audio', f"{1}.mp3"))
     try:
         # Obtener la duración del archivo MP3
         audio = MP3(archivo_mp3)
         duracion_segundos = audio.info.length
-        return (str(duracion_en_segundos)+' s')
+        return (str(duracion_segundos)+' s')
     except Exception as e:
         print("Error al obtener la duración del archivo MP3:", e)
         return None
