@@ -47,3 +47,5 @@ El archivo para que funcione correctamente deberia quedar algo así:
 
 Aclaracion: Los valores proporcionados para "API_KEY" y "AUTORIZACION" y las credenciales de google drive son meramente ejemplos ilustrativos y no tienen la funcionalidad real de acceso.
 
+5. Una vez configurado todo el proyecto, ir a la carpeta fuente del mismo y correr en el bash el siguiente comando: python generatorVideo.py
+
