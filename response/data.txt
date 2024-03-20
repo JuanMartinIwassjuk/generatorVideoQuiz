@@ -1,0 +1,14 @@
+{
+	"questions": [
+		{
+			"question": "Which NBA team has won the most championships in history?",
+			"options": ["Los Angeles Lakers", "Boston Celtics", "Chicago Bulls"],
+			"correct_answer": "Boston Celtics"
+		},
+		{
+			"question": "Who is the NBA's all-time leading scorer?",
+			"options": ["Kareem Abdul-Jabbar", "LeBron James", "Kobe Bryant"],
+			"correct_answer": "Kareem Abdul-Jabbar"
+		}
+	]
+}
